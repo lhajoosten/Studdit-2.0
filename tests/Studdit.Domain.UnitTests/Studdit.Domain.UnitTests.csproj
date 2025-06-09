@@ -23,4 +23,15 @@
     <Using Include="Xunit" />
   </ItemGroup>
 
+
+  <ItemGroup>
+    <Folder Include="Common\" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Studdit.Domain\Studdit.Domain.csproj" />
+    <ProjectReference Include="..\Studdit.Test.Utils\Studdit.Test.Utils.csproj" />
+  </ItemGroup>
+
 </Project>
