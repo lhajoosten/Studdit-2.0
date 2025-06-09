@@ -22,10 +22,4 @@
     <ProjectReference Include="..\Studdit.Domain\Studdit.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Answers\" />
-    <Folder Include="Questions\" />
-    <Folder Include="Votes\" />
-  </ItemGroup>
-
 </Project>
