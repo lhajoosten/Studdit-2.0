@@ -18,7 +18,7 @@ namespace Studdit.Application.Common.Interfaces
         /// <param name="cancellationToken">Cancellation token</param>
         /// <param name="includeProperties">Optional navigation properties to include</param>
         /// <returns>The entity if found, null otherwise</returns>
-        Task<T> GetByIdAsync(TKey id, CancellationToken cancellationToken = default, params Expression<Func<T, object>>[] includeProperties);
+        Task<T?> GetByIdAsync(TKey id, CancellationToken cancellationToken = default, params Expression<Func<T, object>>[] includeProperties);
 
         /// <summary>
         /// Gets a queryable collection of entities
@@ -70,7 +70,7 @@ namespace Studdit.Application.Common.Interfaces
         /// <param name="cancellationToken">Cancellation token</param>
         /// <param name="includeProperties">Optional navigation properties to include</param>
         /// <returns>The entity if found, null otherwise</returns>
-        Task<T> FirstOrDefaultAsync(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken = default, params Expression<Func<T, object>>[] includeProperties);
+        Task<T?> FirstOrDefaultAsync(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken = default, params Expression<Func<T, object>>[] includeProperties);
 
         /// <summary>
         /// Gets a single entity matching a predicate asynchronously, throws if not found

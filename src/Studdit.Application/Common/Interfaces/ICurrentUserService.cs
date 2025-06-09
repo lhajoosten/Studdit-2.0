@@ -8,5 +8,6 @@
         int? UserId { get; }
         string? Username { get; }
         bool IsAuthenticated { get; }
+        string? IpAddress { get; }
     }
 }
