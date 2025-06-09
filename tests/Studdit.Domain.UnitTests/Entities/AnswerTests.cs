@@ -26,8 +26,8 @@ namespace Studdit.Domain.UnitTests.Entities
             answer.Question.Should().Be(question);
             answer.VoteScore.Should().Be(0);
             answer.IsAccepted.Should().BeFalse();
-            answer.CreatedAt.Should().BeCloseTo(DateTime.UtcNow, TimeSpan.FromSeconds(1));
-            answer.UpdatedAt.Should().BeNull();
+            answer.CreatedDate.Should().BeCloseTo(DateTime.UtcNow, TimeSpan.FromSeconds(1));
+            answer.LastModifiedDate.Should().BeNull();
             answer.Votes.Should().BeEmpty();
         }
 
@@ -96,7 +96,7 @@ namespace Studdit.Domain.UnitTests.Entities
 
             // Assert
             answer.Content.Should().Be(newContent);
-            answer.UpdatedAt.Should().BeCloseTo(DateTime.UtcNow, TimeSpan.FromSeconds(1));
+            answer.LastModifiedDate.Should().BeCloseTo(DateTime.UtcNow, TimeSpan.FromSeconds(1));
         }
 
         [Theory]
@@ -293,11 +293,11 @@ namespace Studdit.Domain.UnitTests.Entities
             var answer = Answer.Create(content, author, question);
 
             // Assert
-            answer.CreatedAt.Should().BeCloseTo(beforeCreation, TimeSpan.FromSeconds(1));
+            answer.CreatedDate.Should().BeCloseTo(beforeCreation, TimeSpan.FromSeconds(1));
         }
 
         [Fact]
-        public void UpdatedAt_WhenAnswerUpdated_ShouldBeSetToCurrentTime()
+        public void LastModifiedDate_WhenAnswerUpdated_ShouldBeSetToCurrentTime()
         {
             // Arrange
             var answer = new AnswerBuilder().Build();
@@ -308,18 +308,18 @@ namespace Studdit.Domain.UnitTests.Entities
             answer.Update(newContent);
 
             // Assert
-            answer.UpdatedAt.Should().NotBeNull();
-            answer.UpdatedAt.Value.Should().BeCloseTo(beforeUpdate, TimeSpan.FromSeconds(1));
+            answer.LastModifiedDate.Should().NotBeNull();
+            answer.LastModifiedDate.Value.Should().BeCloseTo(beforeUpdate, TimeSpan.FromSeconds(1));
         }
 
         [Fact]
-        public void UpdatedAt_WhenAnswerNotUpdated_ShouldBeNull()
+        public void LastModifiedDate_WhenAnswerNotUpdated_ShouldBeNull()
         {
             // Arrange & Act
             var answer = new AnswerBuilder().Build();
 
             // Assert
-            answer.UpdatedAt.Should().BeNull();
+            answer.LastModifiedDate.Should().BeNull();
         }
     }
 }

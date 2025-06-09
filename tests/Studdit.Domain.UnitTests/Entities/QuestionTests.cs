@@ -118,7 +118,7 @@ namespace Studdit.Domain.UnitTests.Entities
             // Assert
             question.Title.Should().Be(newTitle);
             question.Content.Should().Be(newContent);
-            question.UpdatedAt.Should().BeCloseTo(DateTime.UtcNow, TimeSpan.FromSeconds(1));
+            question.LastModifiedDate.Should().BeCloseTo(DateTime.UtcNow, TimeSpan.FromSeconds(1));
         }
 
         [Fact]

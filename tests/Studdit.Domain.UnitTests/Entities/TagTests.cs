@@ -22,7 +22,7 @@ namespace Studdit.Domain.UnitTests.Entities
             tag.Name.Should().Be(name.ToLowerInvariant());
             tag.Description.Should().Be(description);
             tag.UsageCount.Should().Be(0);
-            tag.CreatedAt.Should().BeCloseTo(DateTime.UtcNow, TimeSpan.FromSeconds(1));
+            tag.CreatedDate.Should().BeCloseTo(DateTime.UtcNow, TimeSpan.FromSeconds(1));
             tag.Questions.Should().BeEmpty();
         }
 
@@ -296,7 +296,7 @@ namespace Studdit.Domain.UnitTests.Entities
         }
 
         [Fact]
-        public void CreatedAt_WhenTagCreated_ShouldBeSetToCurrentTime()
+        public void CreatedDate_WhenTagCreated_ShouldBeSetToCurrentTime()
         {
             // Arrange
             var beforeCreation = DateTime.UtcNow;
@@ -307,7 +307,7 @@ namespace Studdit.Domain.UnitTests.Entities
             var tag = Tag.Create(name, description);
 
             // Assert
-            tag.CreatedAt.Should().BeCloseTo(beforeCreation, TimeSpan.FromSeconds(1));
+            tag.CreatedDate.Should().BeCloseTo(beforeCreation, TimeSpan.FromSeconds(1));
         }
 
         [Fact]

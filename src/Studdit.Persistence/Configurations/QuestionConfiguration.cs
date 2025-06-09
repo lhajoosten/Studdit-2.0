@@ -21,13 +21,7 @@ namespace Studdit.Persistence.Configurations
 
             builder.Property(q => q.Content)
                 .IsRequired()
-                .HasMaxLength(10000);
-
-            builder.Property(q => q.CreatedAt)
-                .IsRequired();
-
-            builder.Property(q => q.UpdatedAt)
-                .IsRequired(false);
+                .HasMaxLength(500);
 
             builder.Property(q => q.VoteScore)
                 .IsRequired()
@@ -95,7 +89,7 @@ namespace Studdit.Persistence.Configurations
                     });
 
             // Indexes for performance
-            builder.HasIndex(q => q.CreatedAt);
+            builder.HasIndex(q => q.CreatedDate);
             builder.HasIndex(q => q.VoteScore);
             builder.HasIndex(q => q.ViewCount);
             builder.HasIndex(q => q.IsAnswered);

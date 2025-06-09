@@ -63,8 +63,8 @@ namespace Studdit.Application.Questions.Queries.GetQuestions
                     ? specification.OrderByDescending(q => q.Title)
                     : specification.OrderBy(q => q.Title),
                 _ => request.SortDescending
-                    ? specification.OrderByDescending(q => q.CreatedAt)
-                    : specification.OrderBy(q => q.CreatedAt)
+                    ? specification.OrderByDescending(q => q.CreatedDate)
+                    : specification.OrderBy(q => q.CreatedDate)
             };
 
             // Apply pagination

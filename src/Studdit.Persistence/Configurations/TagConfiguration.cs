@@ -26,9 +26,6 @@ namespace Studdit.Persistence.Configurations
                 .IsRequired()
                 .HasMaxLength(200);
 
-            builder.Property(t => t.CreatedAt)
-                .IsRequired();
-
             builder.Property(t => t.UsageCount)
                 .IsRequired()
                 .HasDefaultValue(0);
@@ -52,7 +49,7 @@ namespace Studdit.Persistence.Configurations
 
             // Indexes for performance
             builder.HasIndex(t => t.UsageCount);
-            builder.HasIndex(t => t.CreatedAt);
+            builder.HasIndex(t => t.CreatedDate);
         }
     }
 }

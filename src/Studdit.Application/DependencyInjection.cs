@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
+using Studdit.Application.Common;
 using Studdit.Application.Common.Behaviours;
 using System.Reflection;
 
@@ -18,8 +19,8 @@ namespace Studdit.Application
                 cfg.AddOpenBehavior(typeof(PerformanceBehaviour<,>));
             });
 
-            // Register AutoMapper
-            services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            // Register AutoMapper using mapping profile
+            services.AddAutoMapper(cfg => cfg.AddProfile<MappingProfile>(), Assembly.GetExecutingAssembly());
 
             // Register FluentValidation
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());

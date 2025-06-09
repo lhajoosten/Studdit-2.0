@@ -138,7 +138,7 @@ namespace Studdit.Api.Controllers
                 AuthorId = authorId,
                 PageNumber = pageNumber,
                 PageSize = pageSize,
-                SortBy = "CreatedAt",
+                SortBy = "CreatedDate",
                 SortDescending = true
             };
 
@@ -175,7 +175,7 @@ namespace Studdit.Api.Controllers
                 TagNames = tagList,
                 PageNumber = pageNumber,
                 PageSize = pageSize,
-                SortBy = "CreatedAt",
+                SortBy = "CreatedDate",
                 SortDescending = true
             };
 
@@ -208,7 +208,7 @@ namespace Studdit.Api.Controllers
                 SearchTerm = searchTerm,
                 PageNumber = pageNumber,
                 PageSize = pageSize,
-                SortBy = "CreatedAt",
+                SortBy = "CreatedDate",
                 SortDescending = true
             };
 
@@ -233,7 +233,7 @@ namespace Studdit.Api.Controllers
                 IsAnswered = false,
                 PageNumber = pageNumber,
                 PageSize = pageSize,
-                SortBy = "CreatedAt",
+                SortBy = "CreatedDate",
                 SortDescending = true
             };
 

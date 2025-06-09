@@ -8,8 +8,6 @@ namespace Studdit.Domain.Entities
     public class Answer : BaseEntity
     {
         public string Content { get; private set; }
-        public DateTime CreatedAt { get; private set; }
-        public DateTime? UpdatedAt { get; private set; }
         public User Author { get; private set; }
         public Question Question { get; private set; }
         public int VoteScore { get; private set; }
@@ -29,9 +27,10 @@ namespace Studdit.Domain.Entities
             Content = content;
             Author = author;
             Question = question;
-            CreatedAt = DateTime.UtcNow;
             VoteScore = 0;
             IsAccepted = false;
+            CreatedDate = DateTime.Now;
+            LastModifiedDate = DateTime.Now;
         }
 
         public static Answer Create(string content, User author, Question question)
@@ -49,7 +48,7 @@ namespace Studdit.Domain.Entities
 
             Guard.Against.NullOrWhiteSpace(content, nameof(content), "Content cannot be empty.");
             Content = content;
-            UpdatedAt = DateTime.UtcNow;
+            LastModifiedDate = DateTime.UtcNow;
         }
 
         public void MarkAsAccepted()

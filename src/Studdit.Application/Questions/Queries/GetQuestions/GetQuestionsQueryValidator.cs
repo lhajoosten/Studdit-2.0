@@ -14,8 +14,8 @@ namespace Studdit.Application.Questions.Queries.GetQuestions
                 .LessThanOrEqualTo(100).WithMessage("Page size cannot exceed 100.");
 
             RuleFor(x => x.SortBy)
-                .Must(x => string.IsNullOrEmpty(x) || new[] { "CreatedAt", "VoteScore", "ViewCount", "Title" }.Contains(x))
-                .WithMessage("Invalid sort field. Allowed values: CreatedAt, VoteScore, ViewCount, Title.");
+                .Must(x => string.IsNullOrEmpty(x) || new[] { "CreatedDate", "VoteScore", "ViewCount", "Title" }.Contains(x))
+                .WithMessage("Invalid sort field. Allowed values: CreatedDate, VoteScore, ViewCount, Title.");
 
             RuleFor(x => x.AuthorId)
                 .GreaterThan(0).WithMessage("Author ID must be greater than 0.")

@@ -9,8 +9,6 @@ namespace Studdit.Domain.Entities
     {
         public string Title { get; private set; }
         public string Content { get; private set; }
-        public DateTime CreatedAt { get; private set; }
-        public DateTime? UpdatedAt { get; private set; }
         public User Author { get; private set; }
         public int VoteScore { get; private set; }
         public int ViewCount { get; private set; }
@@ -45,11 +43,12 @@ namespace Studdit.Domain.Entities
             Title = title;
             Content = content;
             Author = author;
-            CreatedAt = DateTime.UtcNow;
             VoteScore = 0;
             ViewCount = 0;
             IsAnswered = false;
             IsClosed = false;
+            CreatedDate = DateTime.Now;
+            LastModifiedDate = DateTime.Now;
         }
 
         public static Question Create(string title, string content, User author)
@@ -69,7 +68,7 @@ namespace Studdit.Domain.Entities
 
             Title = title;
             Content = content;
-            UpdatedAt = DateTime.UtcNow;
+            LastModifiedDate = DateTime.UtcNow;
         }
 
         public void AddAnswer(Answer answer)

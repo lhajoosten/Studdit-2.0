@@ -8,7 +8,6 @@ namespace Studdit.Domain.Entities
     {
         public string Name { get; private set; }
         public string Description { get; private set; }
-        public DateTime CreatedAt { get; private set; }
         public int UsageCount { get; private set; } 
 
         private readonly List<Question> _questions = new();
@@ -28,8 +27,9 @@ namespace Studdit.Domain.Entities
 
             Name = name.ToLowerInvariant(); // Normalize to lowercase for consistency
             Description = description;
-            CreatedAt = DateTime.UtcNow;
             UsageCount = 0;
+            CreatedDate = DateTime.Now;
+            LastModifiedDate = DateTime.Now;
         }
 
         public static Tag Create(string name, string description)

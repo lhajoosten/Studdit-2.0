@@ -17,13 +17,7 @@ namespace Studdit.Persistence.Configurations
 
             builder.Property(a => a.Content)
                 .IsRequired()
-                .HasMaxLength(10000);
-
-            builder.Property(a => a.CreatedAt)
-                .IsRequired();
-
-            builder.Property(a => a.UpdatedAt)
-                .IsRequired(false);
+                .HasMaxLength(500);
 
             builder.Property(a => a.VoteScore)
                 .IsRequired()
@@ -64,7 +58,7 @@ namespace Studdit.Persistence.Configurations
                 .OnDelete(DeleteBehavior.Cascade);
 
             // Indexes for performance
-            builder.HasIndex(a => a.CreatedAt);
+            builder.HasIndex(a => a.CreatedDate);
             builder.HasIndex(a => a.VoteScore);
             builder.HasIndex(a => a.IsAccepted);
             builder.HasIndex("QuestionId");
