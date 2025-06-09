@@ -26,7 +26,6 @@
     <Folder Include="Answers\" />
     <Folder Include="Questions\" />
     <Folder Include="Votes\" />
-    <Folder Include="Users\" />
   </ItemGroup>
 
 </Project>
